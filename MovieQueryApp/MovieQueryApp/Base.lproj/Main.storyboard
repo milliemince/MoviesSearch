@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DmW-Fn-qtl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search for movies...-->
+        <scene sceneID="hKz-qm-AvP">
+            <objects>
+                <viewController id="DmW-Fn-qtl" customClass="ViewController" customModule="MovieQueryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUQ-oK-9GC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="TBj-Xw-XPZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="UsR-sV-Cif">
+                                <rect key="frame" x="15" y="59" width="384" height="104"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a movie..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFb-IL-rEf">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="query:" destination="DmW-Fn-qtl" eventType="editingChanged" id="3nb-5k-Fyx"/>
+                                            <action selector="query:" destination="21Z-2c-CyW" eventType="editingDidEnd" id="IyX-YH-UIq"/>
+                                            <action selector="string:" destination="21Z-2c-CyW" eventType="editingDidEnd" id="cZ9-Cq-0IQ"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyX-bj-Zcq">
+                                        <rect key="frame" x="0.0" y="74" width="384" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="searchClicked:" destination="21Z-2c-CyW" eventType="touchUpInside" id="5TE-Z7-YWy"/>
+                                            <action selector="searchClicked:" destination="DmW-Fn-qtl" eventType="touchUpInside" id="9Ux-If-FDd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nqU-3t-n1n">
+                                <rect key="frame" x="20" y="211" width="374" height="651"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="149" id="E2A-Qj-DHe">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="149"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E2A-Qj-DHe" id="paW-65-FBx">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LmY-eu-jMR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TBj-Xw-XPZ" firstAttribute="top" secondItem="hUQ-oK-9GC" secondAttribute="top" id="27R-w7-X0k"/>
+                            <constraint firstAttribute="bottom" secondItem="TBj-Xw-XPZ" secondAttribute="bottom" id="3Qf-yA-dkO"/>
+                            <constraint firstItem="UsR-sV-Cif" firstAttribute="leading" secondItem="LmY-eu-jMR" secondAttribute="leading" constant="15" id="8je-1m-9aJ"/>
+                            <constraint firstItem="TBj-Xw-XPZ" firstAttribute="leading" secondItem="hUQ-oK-9GC" secondAttribute="leading" id="9CX-35-96L"/>
+                            <constraint firstAttribute="trailing" secondItem="TBj-Xw-XPZ" secondAttribute="trailing" id="BvJ-Aw-3G3"/>
+                            <constraint firstItem="UsR-sV-Cif" firstAttribute="top" secondItem="LmY-eu-jMR" secondAttribute="top" constant="15" id="eP1-7m-g7A"/>
+                            <constraint firstItem="UsR-sV-Cif" firstAttribute="centerX" secondItem="hUQ-oK-9GC" secondAttribute="centerX" id="hQG-nA-xN1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search for movies..." id="PZe-PZ-XbB"/>
+                    <connections>
+                        <outlet property="ResultsView" destination="nqU-3t-n1n" id="FXc-xd-AI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8UA-cn-aBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="21Z-2c-CyW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="181.15942028985509" y="-119.19642857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="960" height="528"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
