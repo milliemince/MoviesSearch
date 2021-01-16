@@ -4,7 +4,6 @@
 //
 //  Created by Camille Mince on 1/14/21.
 //
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -42,18 +41,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func searchClicked(_ sender: UIButton) {
         let search = toValidSearchString(s: &queryString)
         searchMovies(searchString: search, completion: {
+            //update view
             (self.ResultsView.reloadData())
         })
     }
     
     func displayAlert() {
+        //displayed when user inputs search that creates an invalid URL
         let alert = UIAlertController(title: "Something went wrong...", message: "There were no results for your search. Please try again", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
     
     func loadImages(completion: () -> ()) {
-        //had trouble linking UIImage to ImageView in TableViewCell...
+        //had trouble formatting images correctly alongside label in UITableViewCell...
         for i in 0...results.count-1 {
             let poster_path_at_index = results[i].poster_path!
             let imageUrlString = "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + poster_path_at_index + ".jpg"
@@ -110,11 +111,3 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
-
-
-
